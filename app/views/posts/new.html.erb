@@ -1,0 +1,23 @@
+<%= form_for(@post) do |f| %>
+  <p>
+    <%= f.label :title %>
+    <%= f.text_field :title %>
+  </p>
+
+  <p>
+    <%= f.label :body %>
+    <%= f.text_area :body %>
+  </p>
+
+  <p>
+    <%= f.label :cateogry %>
+
+    <%= f.select :category_names, Category.all.collect{|c| [c.name, c.name]}, {}, {multiple: true} %> 
+
+    Or create a new category <input type="text" name="post[category_names][]">
+  </p>
+
+  <p>
+    <%= submit_tag "Create Post" %>
+  </p>
+<% end %>
